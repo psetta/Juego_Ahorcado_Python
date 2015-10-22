@@ -4,7 +4,7 @@ from os import system,name
 from time import sleep
 
 def clear():
-	system("clear") if name == "poxis" else system("cls")
+	system("clear") if name == "posix" else system("cls")
 	
 def mostrar_titulo():
 	clear()
@@ -14,13 +14,13 @@ def pintar_monigote(v):
 	print "   --------------  "
 	print "  |    _________/"
 	print "  |   |" if v == 5 else "  |   |        |"
-	print "  |   |" if v == 5 else "  |   |       -^-"
-	print "  |   |" if v == 5 else "  |   |      (x x)"
+	print "  |   |" if v == 5 else "  |   |       _^_"
+	print "  |   |" if v == 5 else "  |   |      (o o)"   if v >= 1 else "  |   |      (x x)"
 	print "  |   |" if v == 5 else "  |   |       ---"
 	print "  |   |" if v >= 4 else "  |   |        |----" if v >= 3 else "  |   |    ----|----"
 	print "  |   |" if v >= 2 else "  |   |        |"
-	print "  |   |" if v >= 2 else "  |   |         \\" if v >= 1 else "  |   |       / \\"
-	print "  |   |" if v >= 2 else "  |   |          \\" if v >= 1 else "  |   |      /   \\"
+	print "  |   |" if v >= 2 else "  |   |         \\"   if v >= 1 else "  |   |       / \\"
+	print "  |   |" if v >= 2 else "  |   |          \\"  if v >= 1	else "  |   |      /   \\"
 	print " /_____\\"
 	print "\n"
 	
@@ -41,7 +41,7 @@ while(True):
 
 	mostrar_titulo()
 	
-	print "vida:",vida,"\n"
+	print "vida:","o "*vida,"\n"
 	
 	pintar_monigote(vida)
 	
@@ -63,7 +63,7 @@ while(True):
 				letras = "".join(["".join(palabra[nl]) if letra==palabra[nl] or letras[nl]!="*" 
 						else "".join("*") for nl in range(len(palabra))])
 			
-				print "\nNoraboa! A letra esta na palabra"
+				print "\nNoraboa! A letra %r esta na palabra" % (letra)
 				letras_empregadas.append(letra)
 				
 			else:
@@ -78,10 +78,11 @@ while(True):
 			print "\nLetra repetida! Xa escribiches antes esta letra"
 			
 	elif vida <= 0:
-		print "\n"+"*"*15+"\nMorriches!"
+		print "\n"+"*"*15+"\nMorriches!"+"\n"+"*"*15
+		print "\nA palabra era: %r" % palabra
 		
 	else:
-		print "\n"+"*"*15+"\nTriunfaches!"
+		print "\n"+"*"*15+"\nTriunfaches!"+"\n"+"*"*15
 		
 	raw_input()
 		
