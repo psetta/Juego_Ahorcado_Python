@@ -1,7 +1,6 @@
 ﻿# -*- coding: utf-8 -*-
 
 from os import system,name
-from time import sleep
 
 def clear():
 	system("clear") if name == "posix" else system("cls")
